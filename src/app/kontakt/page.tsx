@@ -2,7 +2,14 @@ import Link from 'next/link';
 import AnimatedSection from '@/components/AnimatedSection';
 import FixedBackground from '@/components/FixedBackground';
 
-export default function KontaktPage() {
+interface Props {
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export default async function KontaktPage({ searchParams }: Props) {
+    const params = await searchParams;
+    const preselectedService = typeof params.service === 'string' ? params.service : 'Buchungsanfrage – Poetry Slam';
+
     return (
         <>
             <FixedBackground />
@@ -77,14 +84,15 @@ export default function KontaktPage() {
                                 <select
                                     id="subject"
                                     name="subject"
+                                    defaultValue={preselectedService}
                                     className="w-full px-4 py-3 rounded-xl border border-neutral-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all text-neutral-800"
                                 >
-                                    <option>Buchungsanfrage – Poetry Slam</option>
-                                    <option>Buchungsanfrage – Moderation</option>
-                                    <option>Buchungsanfrage – Workshop</option>
-                                    <option>Buchungsanfrage – Sprecherin</option>
-                                    <option>Allgemeine Anfrage</option>
-                                    <option>Presseanfrage</option>
+                                    <option value="Buchungsanfrage – Poetry Slam">Buchungsanfrage – Poetry Slam</option>
+                                    <option value="Buchungsanfrage – Moderation">Buchungsanfrage – Moderation</option>
+                                    <option value="Buchungsanfrage – Workshop">Buchungsanfrage – Workshop</option>
+                                    <option value="Buchungsanfrage – Sprecherin">Buchungsanfrage – Sprecherin</option>
+                                    <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+                                    <option value="Presseanfrage">Presseanfrage</option>
                                 </select>
                             </div>
 

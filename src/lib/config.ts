@@ -15,7 +15,7 @@ export const siteConfig = {
     // Navigation items (will be replaced by WP menu API when available)
     navigation: [
         { label: 'Home', href: '/' },
-        { label: 'Poetry & More', href: '/poetry-and-more' },
+        { label: 'Poetry & More', href: '/leistungen' },
         { label: 'Workshops', href: '/workshops' },
         { label: 'Podcast & More', href: '/podcast-and-more' },
         { label: 'Events', href: '/events' },
